@@ -9,8 +9,12 @@ import {SpotifyService} from '../../services/spotify.service';
 })
 export class HomeComponent {
 
+  _newReleases: any[] = [];
+
   constructor(private _spotifySerice: SpotifyService) {
-    this._spotifySerice.getNewReleases();
+    this._spotifySerice.getNewReleases().subscribe((newReleases) => {
+      this._newReleases = newReleases.albums.items;
+    });
   }
 
 }
