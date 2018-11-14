@@ -14,9 +14,9 @@ export class SearchComponent {
 
   search(searchTerm: string) {
     console.log(searchTerm);
-    this._spotifyService.getArtists(searchTerm).subscribe((results) => {
-      console.log(results.artists);
-      this._artists = results.artists.items;
+    this._spotifyService.getArtists(searchTerm).subscribe((artists) => {
+      console.log(artists);
+      this._artists = artists;
     });
   }
 

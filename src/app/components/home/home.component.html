@@ -1,6 +1,6 @@
 <div class="card-columns">
   <div *ngFor="let album of _newReleases" class="card">
-    <img class="card-img-top" [src]="album.images[0].url" alt="Card image cap">
+    <img class="card-img-top" [src]="album.images | noImage" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{album.name}}</h5>
       <p class="card-text">

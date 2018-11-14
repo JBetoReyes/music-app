@@ -12,6 +12,9 @@ import {ROUTES} from './app.routes';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 
+// Pipes
+import { NoImagePipe } from './pipes/no-image.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
     SearchComponent,
     ArtistComponent,
     NavbarComponent,
+    NoImagePipe,
   ],
   imports: [
     BrowserModule,
