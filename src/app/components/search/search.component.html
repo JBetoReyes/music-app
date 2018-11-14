@@ -4,4 +4,4 @@
   </div>
 </div>
 <app-loading *ngIf="loading" class="m-5"></app-loading>
-<app-card *ngIf="!loading" class="m-5" [items]="artists"></app-card>
+<app-card (cardClick)="seeArtist($event)" *ngIf="!loading" class="m-5" [items]="artists"></app-card>

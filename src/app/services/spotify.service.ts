@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class SpotifyService {
 
-  TOKEN = 'BQCVxubPEEHTHiJmwrECFTexK9zTnh1uWHn4Mc8c3mcW4o8CPkNclP4XK5x30u0XzP5M7O9WBBGH0yCh-zI';
+  TOKEN = 'BQCfBv_Ak5QhGruOQ8uEPMmfioS6ZyT0impnwd1wuT2wbZcavVRK0wAsoUkepgJPevyYHulg6m61TO0dsbc';
 
   constructor(private _httpClient: HttpClient) { }
 
@@ -33,6 +33,13 @@ export class SpotifyService {
     return this.getQuery(`search?q=${searchTerm}&type=artist`)
       .pipe(map(data => {
         return data['artists'].items;
+      }));
+  }
+
+  getArtist(artistId: string) {
+    return this.getQuery(`artists/${ artistId }`)
+      .pipe(map(data => {
+        return data;
       }));
   }
 }

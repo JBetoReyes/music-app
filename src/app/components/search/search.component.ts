@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {SpotifyService} from '../../services/spotify.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,11 @@ export class SearchComponent {
   artists = [];
   loading: boolean;
 
-  constructor(private _spotifyService: SpotifyService) { }
+  constructor(
+    private _spotifyService: SpotifyService,
+    private _router: Router
+  ) { }
+
   search(searchTerm: string) {
     if (searchTerm && searchTerm !== '') {
       this.loading = true;
@@ -22,6 +27,10 @@ export class SearchComponent {
     } else if (searchTerm === '') {
       this.artists = [];
     }
+  }
+
+  seeArtist(item) {
+    this._router.navigate(['artist', item.id]);
   }
 
 }
