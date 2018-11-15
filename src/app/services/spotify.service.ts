@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
+import {a} from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
-  TOKEN = 'BQCfBv_Ak5QhGruOQ8uEPMmfioS6ZyT0impnwd1wuT2wbZcavVRK0wAsoUkepgJPevyYHulg6m61TO0dsbc';
+  TOKEN = 'BQAmxORNSCUKtvOwY4g739HAVlEMFJ0qwXp6IBKHUnnP7KNb3R9pRZc8tAV0Mk2_kbZHhJhLIZqmWckTp98';
 
   constructor(private _httpClient: HttpClient) { }
 
@@ -41,5 +42,12 @@ export class SpotifyService {
       .pipe(map(data => {
         return data;
       }));
+  }
+
+  getTopTracks(artistId: string) {
+    return this.getQuery(`artists/${ artistId }/top-tracks?country=us`)
+      .pipe(
+        map(result => result['tracks'])
+      );
   }
 }
